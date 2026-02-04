@@ -20,10 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             UiAppAssignmentTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    UI(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
