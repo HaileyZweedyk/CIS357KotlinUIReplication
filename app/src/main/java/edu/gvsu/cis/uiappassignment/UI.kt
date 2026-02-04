@@ -250,19 +250,33 @@ fun UI(modifier: Modifier = Modifier) {
                         .fillMaxHeight()
                 ) {
                     Column() {
-                        Text(
-                            "Weight",
-                            fontFamily = quicksand,
-                            fontSize = 12.sp,
-                            color = softerText,
-                            fontWeight = Bold
-                        )
+                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center) {
+                            Box(
+                                modifier = Modifier
+                                    .size(20.dp), // controls row height impact
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Image(
+                                    painter = painterResource(R.drawable.downarrow),
+                                    contentDescription = null,
+                                    modifier = Modifier.size(20.dp) // visual size
+                                )
+                            }
+                            Text(
+                                "Weight",
+                                fontFamily = quicksand,
+                                fontSize = 12.sp,
+                                color = softerText,
+                                fontWeight = Bold
+                            )
+                        }
 
                         Spacer(modifier = Modifier.weight(1f))
 
                         Row(
                             verticalAlignment = Alignment.Bottom
                         ) {
+                            Spacer(modifier = modifier.width(7.dp))
                             Text(
                                 "0.6",
                                 fontFamily = quicksand,
@@ -270,7 +284,7 @@ fun UI(modifier: Modifier = Modifier) {
                                 fontWeight = Bold,
                                 color = softText
                             )
-                            Spacer(Modifier.width(2.dp))
+                            Spacer(Modifier.width(8.dp))
                             Text(
                                 "lb",
                                 fontFamily = quicksand,
@@ -281,19 +295,32 @@ fun UI(modifier: Modifier = Modifier) {
                         }
                     }
                     Column() {
-                        Text(
-                            "BMI",
-                            fontFamily = quicksand,
-                            fontSize = 12.sp,
-                            color = softerText,
-                            fontWeight = Bold
-                        )
-
+                        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center) {
+                            Box(
+                                modifier = Modifier
+                                    .size(20.dp), // controls row height impact
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Image(
+                                    painter = painterResource(R.drawable.downarrow),
+                                    contentDescription = null,
+                                    modifier = Modifier.size(20.dp) // visual size
+                                )
+                            }
+                            Text(
+                                "BMI",
+                                fontFamily = quicksand,
+                                fontSize = 12.sp,
+                                color = softerText,
+                                fontWeight = Bold
+                            )
+                        }
                         Spacer(modifier = Modifier.weight(1f))
 
                         Row(
                             verticalAlignment = Alignment.Bottom
                         ) {
+                            Spacer(modifier = modifier.width(15.dp))
                             Text(
                                 "0.1",
                                 fontFamily = quicksand,
@@ -304,19 +331,36 @@ fun UI(modifier: Modifier = Modifier) {
                         }
                     }
                     Column() {
-                        Text(
-                            "Body Fat",
-                            fontFamily = quicksand,
-                            fontSize = 12.sp,
-                            color = softerText,
-                            fontWeight = Bold
-                        )
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Center
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .size(20.dp), // controls row height impact
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Image(
+                                    painter = painterResource(R.drawable.downarrow),
+                                    contentDescription = null,
+                                    modifier = Modifier.size(20.dp) // visual size
+                                )
+                            }
+                            Text(
+                                "Body Fat",
+                                fontFamily = quicksand,
+                                fontSize = 12.sp,
+                                color = softerText,
+                                fontWeight = Bold
+                            )
+                        }
 
                         Spacer(modifier = Modifier.weight(1f))
 
                         Row(
                             verticalAlignment = Alignment.Bottom
                         ) {
+                            Spacer(modifier = modifier.width(10.dp))
                             Text(
                                 "0.2",
                                 fontFamily = quicksand,
@@ -324,7 +368,7 @@ fun UI(modifier: Modifier = Modifier) {
                                 fontWeight = Bold,
                                 color = softText
                             )
-                            Spacer(Modifier.width(2.dp))
+                            Spacer(Modifier.width(8.dp))
                             Text(
                                 "%",
                                 fontFamily = quicksand,
@@ -334,7 +378,6 @@ fun UI(modifier: Modifier = Modifier) {
                             )
                         }
                     }
-
                 }
             }
         }
@@ -525,7 +568,6 @@ fun UI(modifier: Modifier = Modifier) {
             }
         }
     }
-
 }
 
 @Preview(showBackground = true)
