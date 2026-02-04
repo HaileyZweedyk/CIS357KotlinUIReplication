@@ -22,3 +22,7 @@ val darkerBackground = Color(0xFFfcf5fb)
 val lighterBackground = Color(0xFFfffafb)
 
 val shadowColor = Color(0xFFcec0c3)
+
+val sliderFalse = Color(0xFFa3bed4)
+
+val sliderTrue = Color(0xFF4899db)

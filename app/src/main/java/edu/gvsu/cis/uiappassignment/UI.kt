@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,13 +24,20 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Divider
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.BlurredEdgeTreatment
@@ -54,6 +62,12 @@ import edu.gvsu.cis.uiappassignment.ui.theme.divider
 import edu.gvsu.cis.uiappassignment.ui.theme.lighterBackground
 import edu.gvsu.cis.uiappassignment.ui.theme.quicksand
 import edu.gvsu.cis.uiappassignment.ui.theme.shadowColor
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.focus.focusModifier
+import androidx.compose.ui.unit.DpSize
+import edu.gvsu.cis.uiappassignment.ui.theme.sliderFalse
+import edu.gvsu.cis.uiappassignment.ui.theme.sliderTrue
 
 @Composable
 fun UI(modifier: Modifier = Modifier) {
@@ -417,11 +431,15 @@ fun UI(modifier: Modifier = Modifier) {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 15.dp, end = 15.dp, top = 20.dp),
+                            .padding(15.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text("Body Index", color = softText, fontSize = 16.sp)
+                        Text(
+                            "Compared",
+                            color = softText,
+                            fontSize = 16.sp
+                        )
                     }
 
                     Row(
@@ -521,7 +539,7 @@ fun UI(modifier: Modifier = Modifier) {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 17.dp, end = 17.dp, top = 40.dp, bottom = 40.dp),
+                            .padding(start = 17.dp, end = 17.dp, top = 40.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
@@ -562,6 +580,34 @@ fun UI(modifier: Modifier = Modifier) {
                                     modifier = Modifier.size(10.dp) // visual size
                                 )
                             }
+                        }
+                    }
+                    Row(modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 20.dp)) {
+//                        var value by remember { mutableStateOf(50f) }
+                        var progress by remember { mutableStateOf(0.90f) }
+
+                        Column(){
+                            Text("Goal: ${(progress * 100).toInt()}%", fontFamily = quicksand, fontWeight = Bold, modifier = modifier.padding(bottom = .5.dp))
+                            LinearProgressIndicator(
+                                progress = progress,
+                                color = sliderTrue,
+                                trackColor = sliderFalse
+                            )
+
+//                            Slider(
+//                                value = value,
+//                                onValueChange = { value = it },
+//                                valueRange = 0f..100f,
+//                                colors = SliderDefaults.colors(
+//                                    activeTrackColor = sliderTrue,
+//                                    inactiveTrackColor = sliderFalse,
+//                                    thumbColor = softerText),
+//                                modifier = modifier
+//                                    .height(.05.dp)
+//                                    .padding(horizontal = 45.dp)
+//                            )
                         }
                     }
                 }
